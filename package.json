@@ -1,0 +1,26 @@
+{
+  "name": "backend-postgres",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Gaurav Jawalkar",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "bun --watch --env-file=.env index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "drizzle-kit": "^0.31.5",
+    "drizzle-orm": "^0.44.6",
+    "i": "^0.3.7",
+    "npm": "^11.6.2",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.9.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
