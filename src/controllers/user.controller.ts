@@ -3,17 +3,17 @@ import { usersTable } from "../drizzle/schema"
 
 const getAllUsers = async () => {
     try {
-        const users = await db.select().from(usersTable);
-        if (users.length == 0) {
+        const response = await db.select().from(usersTable);
+        if (response.length == 0) {
             console.log("No Users found ");
         } else {
-            console.log("The users are : ", users);
+            console.log("The users are : ", response);
         }
 
-        return users;
+        return response;
 
     } catch (error) {
-        console.log("Failed to get all the users : ", error)
+        throw new Error("Failed to get all the users ")
     }
 }
 
