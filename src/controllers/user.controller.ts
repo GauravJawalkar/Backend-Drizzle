@@ -1,7 +1,8 @@
+import { Request, Response } from "express";
 import { db } from "../db"
 import { usersTable } from "../drizzle/schema"
 
-const getAllUsers = async (_:any,res: any) => {
+const getAllUsers = async (_: Request, res: Response) => {
     try {
         const response = await db.select().from(usersTable);
         if (response.length == 0) {
@@ -13,11 +14,12 @@ const getAllUsers = async (_:any,res: any) => {
         return res.json({ status: 200, data: response, message: "All users from the database " });
 
     } catch (error) {
-        throw new Error("Failed to get all the users ")
+        console.error("Failed to get all the users ", error)
+        return res.status(500).json({ status: 500, message: "Failed to get all the users. Internal Server Error" })
     }
 }
 
-const createUser = async (req: any, res: any) => {
+const createUser = async (req: Request, res: Response) => {
     try {
         const { name, email, age } = req.body;
 
@@ -33,8 +35,9 @@ const createUser = async (req: any, res: any) => {
             return res.json({ status: 200, message: "User created Successfully" });
         }
 
-    } catch (error: any) {
-        throw new Error(error?.message);
+    } catch (error) {
+        console.error("Error creating user:", error);
+        return res.status(500).json({ status: 500, message: "Failed to create the user" })
     }
 }
 
