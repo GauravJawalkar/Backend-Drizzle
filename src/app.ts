@@ -9,7 +9,9 @@ app.use(express.json()); // This tells the express to covert whatever we are sen
 
 // imports for specific controllers
 import getUsers from './routes/user.routes'
+import createUser from "./routes/user.routes";
 
 app.use('/api/v1/users', getUsers);
+app.use('/api/v1/users', createUser)
 
 export { app }
