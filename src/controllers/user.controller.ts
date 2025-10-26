@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { db } from "../db"
-import { usersTable } from "../drizzle/schema"
+import { usersTable } from "../models/users.model"
 
 const getAllUsers = async (_: Request, res: Response) => {
     try {

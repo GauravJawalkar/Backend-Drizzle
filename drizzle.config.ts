@@ -4,7 +4,7 @@ const config = defineConfig(
     {
         dialect: 'postgresql',
         out: './src/drizzle',
-        schema: "./src/drizzle/schema.ts",
+        schema: "./src/models/schema.ts",
         dbCredentials: {
             url: process.env.DATABASE_URL!
         }
