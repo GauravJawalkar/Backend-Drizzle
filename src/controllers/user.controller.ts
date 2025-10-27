@@ -29,8 +29,6 @@ const createUser = async (req: Request, res: Response) => {
 
         const response = await db.insert(usersTable).values({ name, email, age });
 
-        console.log("The created User is : ", response);
-
         if (response) {
             return res.json({ status: 200, message: "User created Successfully" });
         }

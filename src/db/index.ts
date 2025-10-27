@@ -10,7 +10,6 @@ const neonPostgresPool = new Pool(
     }
 )
 
-// postgres://<username>:<password>@<host>:<port>/<db_name> ---> Postgres database URL convention
 const db = drizzle(neonPostgresPool);
 
 export { db }
